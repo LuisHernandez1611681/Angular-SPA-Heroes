@@ -4,7 +4,7 @@
 <div class="card-columns">
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
-        <div class="col animated fadeIn fast" *ngFor="let heroe of heroes">
+        <div class="col animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
             <div class="card">
                 <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre">
                 <div class="card-body">
@@ -12,9 +12,12 @@
                     <p class="card-text">{{ heroe.bio }}</p>
 
                     <div class="d-grid gap-2">
-                        <button type="button" class="btn btn-outline-primary" type="button">
+                        <a 
+                            [routerLink]="['/heroe', i]"
+                            class="btn btn-outline-primary"
+                        >
                             Ver más...
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="card-footer">
